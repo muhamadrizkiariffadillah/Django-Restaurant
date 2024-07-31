@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db.models import OneToOneField
 
 
+
 # Create your models here.
 
 
@@ -124,5 +125,11 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+
+
+
+
 
 
