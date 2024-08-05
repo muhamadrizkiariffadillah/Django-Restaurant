@@ -1,0 +1,11 @@
+{% extends "registerUser.html" %}
+
+<p class="text-center">
+  {% if messages %}
+  {% for message in messages%}
+        <div class="alert alert-success">
+            {% message %}
+        </div>
+  {% endfor %}
+  {% endif %}
+</p>
