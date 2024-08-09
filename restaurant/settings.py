@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # Custom app
     'accounts',
+    'vendor',
 ]
 
 MIDDLEWARE = [
