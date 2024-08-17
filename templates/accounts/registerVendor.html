@@ -1,0 +1,153 @@
+{%  extends "base.html"%}
+{% load static %}
+{% block content %}
+      <div class="sub-header align-center">
+        <div
+          class="subheader-holder"
+          style="
+            background: url({% static "extra-images/subheader-img2-1.jpg" %}) no-repeat;
+            background-size: cover;
+            padding-top: 60px;
+            padding-bottom: 30px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            min-height: 186px !important;
+          "
+        >
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="text-holder">
+                  <div class="page-title">
+                    <h1 style="color: #ffffff !important">Partner with foodonline</h1>
+                  </div>
+                  <p style="color: #ffffff !important">
+                    Register your restaurant with foodonline marketplace and get more customers
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="breadcrumbs align-left">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li class="active">Register</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Main Section Start -->
+	<!-- Main Section Start -->
+		<div class="main-section">
+			<div class="page-section nopadding cs-nomargin" style="margin-top: 0px;padding-top: 60px;padding-bottom: 60px;margin-bottom: 0px;">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+							<div class="user-dashboard loader-holder">
+								<div class="user-holder">
+                            <h4 class="text-center" style="margin-bottom: 0;">WELCOME TO FOODONLINE</h4>
+                            <p class="text-center">Please fill this form to get yourself onboarded in the foodOnline marketplace.</p>
+                            <hr>
+                            <p class="text-center">
+                                {% for field in form %}
+                                    {% if field.errors%}
+                                        {% for error in field.errors %}
+                                        <li style="color: red">{{error}}</li>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endfor %}
+                            </p>
+                                {% include "accounts/success.html"%}
+                            <div id="restaurant-sets-holder">
+                                <form class="form-fields-set foodbakery-dev-restaurant-form" method="post" action="{% url 'registerVendor' %}" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <ul class="register-add-restaurant-tab-container restaurant-information-tab-container">
+                                        <li>
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="row">
+                                                        <ul >
+                                                            <li>
+                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                    <div class="field-holder">
+                                                                        <label>First name</label>
+                                                                        {{ form.first_name }}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                    <div class="field-holder">
+                                                                        <label>Last name</label>
+                                                                        {{ form.last_name}}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                    <div class="field-holder">
+                                                                        <label>Restaurant name</label>
+                                                                        {{ vendor_form.vendor_name}}
+                                                                    </div>
+                                                                </div>
+                                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                    <div class="field-holder">
+                                                                        <label>Restaurant License</label>
+                                                                        {{ vendor_form.vendor_license}}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                    <div class="field-holder">
+                                                                        <label>Username</label>
+                                                                        {{ form.username }}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                    <div class="field-holder">
+                                                                        <label>Phone number</label>
+                                                                        {{form.phone_number}}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                    <div class="field-holder">
+                                                                        <label>Email Address</label>
+                                                                        {{ form.email }}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                    <div class="field-holder">
+                                                                        <label>Password</label>
+                                                                            {{ form.password }}
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="field-holder">
+                                                        <div class="payment-holder">
+                                                            <input type="submit" value="Register" id="btn-next-restaurant-information" class="bgcolor">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </form>
+                            </div>
+                        </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Main Section End -->
+{% endblock %}

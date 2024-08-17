@@ -9,7 +9,3 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ['first_name', 'last_name', 'username',
                   'email', 'password', 'phone_number']
-
-    def clean(self):
-        cleaned_data = super(UserForm, self).clean()
-        password = cleaned_data.get('password')
